@@ -19,6 +19,18 @@
     "firstName" : "Paul",
     "lastName" : "McCartney",
     "position" : "Developer I",
+    "department" : "Engineering",
+    "directReports" : [
+      {
+        "employeeId": "p02o293d-10ls-8391-8e08-673h2d18b22c"
+      }
+    ]
+  },
+  {
+    "employeeId" : "p02o293d-10ls-8391-8e08-673h2d18b22c",
+    "firstName" : "Kenneth",
+    "lastName" : "Fernandes",
+    "position" : "Developer I",
     "department" : "Engineering"
   },
   {
