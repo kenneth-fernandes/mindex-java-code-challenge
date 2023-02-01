@@ -142,7 +142,7 @@ Compensation JSON schema:
       "type": "double"
     },
     "effectiveDate": {
-      "type": "Date"
+      "type": "LocalDate"
     }
   }
 }
