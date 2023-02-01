@@ -39,6 +39,9 @@ public class EmployeeServiceUtilsImpl implements EmployeeServiceUtils {
             int currentSize = queue.size();
             for(int i =0; i < currentSize; i++) {
                 Employee currentEmployee = employeeRepository.findByEmployeeId(queue.poll());
+                if(currentEmployee == null) {
+                    continue;
+                }
                 List<Employee> currentDirectReports = currentEmployee.getDirectReports();
                 if(currentDirectReports != null) {
                     queue.addAll(
