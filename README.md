@@ -77,10 +77,91 @@ This new type should have a new REST endpoint created for it. This new endpoint 
 the fully filled out ReportingStructure for the specified employeeId. The values should be computed on the fly and will 
 not be persisted.
 
+#### Solution:
+Endpoint:
+```
+
+* READ
+    * HTTP Method: GET 
+    * URL: localhost:8080/employee/reporting-structure?employeeId={EMPLOYEE_ID}
+    * RESPONSE: Employee
+
+```
+
+ReportingStructure JSON schema:
+```json
+{
+  "type":"ReportingStructure",
+  "properties": {
+    "employee": {
+      "type": "Employee"
+    },
+    "numberOfReports": {
+      "type": "integer"
+    }
+  }
+}
+```
+
+Example:
+```
+Endpoint URL: http://localhost:8080/employee/reporting-structure?employeeId=c0c2293d-16bd-4603-8e08-638a9d18b22c
+
+```
+
 ### Task 2
 Create a new type, Compensation. A Compensation has the following fields: employee, salary, and effectiveDate. Create 
 two new Compensation REST endpoints. One to create and one to read by employeeId. These should persist and query the 
 Compensation from the persistence layer.
+
+
+#### Solution:
+Endpoint:
+```
+* CREATE
+    * HTTP Method: POST 
+    * URL: localhost:8080/employee/compensation
+    * PAYLOAD: Compensation
+    * RESPONSE: Compensation
+* READ
+    * HTTP Method: GET 
+    * URL: localhost:8080/employee/compensation?employeeId={EMPLOYEE_ID}
+    * RESPONSE: Compensation
+
+```
+
+Compensation JSON schema:
+```json
+{
+  "type":"Compensation",
+  "properties": {
+    "employeeId": {
+      "type": "string"
+    },
+    "salary": {
+      "type": "double"
+    },
+    "effectiveDate": {
+      "type": "Date"
+    }
+  }
+}
+```
+
+Example:
+```
+1. Create Compensation:
+Endpoint URL: http://localhost:8080/employee/compensation
+RequestBody:
+{
+    "employeeId": "16a596ae-edd3-4847-99fe-c4518e82c86f",
+    "salary": 15000.99,
+    "effectiveDate": "2023-01-21"
+}
+
+2. Retrieve Compensation:
+Endpoint URL: http://localhost:8080/employee/compensation?employeeId=16a596ae-edd3-4847-99fe-c4518e82c86f
+```
 
 ## Delivery
 Please upload your results to a publicly accessible Git repo. Free ones are provided by Github and Bitbucket.
